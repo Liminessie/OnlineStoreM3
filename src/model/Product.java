@@ -9,5 +9,5 @@ package model;
  * @author cesararcras
  */
 public class Product {
-    
+    private String name;
 }
