@@ -9,6 +9,10 @@ public class Product {
     private int category;
     private String color;
 
+    public Product() {
+        
+    }
+
     public Product(String productName, String productDescription, float productSupplierPrice, float productSalePrice, int productCategory, String productColor) {
         this.name = productName;
         this.description = productDescription;
