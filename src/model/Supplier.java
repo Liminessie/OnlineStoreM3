@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+import validation.Validator;
 
 public class Supplier {
     private String name;
@@ -30,7 +31,11 @@ public class Supplier {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        if (Validator.validateEmail(email)) {
+            this.email = email;
+        } else {
+            System.out.println("Invalid email");
+        }
     }
 
     public String getPhone() {
@@ -38,7 +43,11 @@ public class Supplier {
     }
 
     public void setPhone(String phone) {
-        this.phone = phone;
+        if (Validator.validatePhone(phone)) {
+            this.phone = phone;
+        } else {
+            System.out.println("Invalid phone");
+        }
     }
 
     public int getSupplierType() {
@@ -59,7 +68,7 @@ public class Supplier {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Product{");
+        sb.append("Supplier{");
         sb.append("name= ").append(name);
         sb.append(", email= ").append(email);
         sb.append(", phone= ").append(phone);

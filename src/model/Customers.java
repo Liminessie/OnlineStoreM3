@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+import validation.Validator;
 
 public class Customers {
     
@@ -66,12 +67,17 @@ public class Customers {
     }
 
     public void setDateUnion(LocalDate dateUnion) {
-        this.dateOfUnion = dateUnion;
+        if (Validator.validateDate(dateUnion)) {
+            this.dateOfUnion = dateUnion;
+        } else {
+            System.out.println("Invalid date");
+        }
     }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Product{");
+        sb.append("Customer{");
         sb.append("name= ").append(name);
         sb.append("surname= ").append(surname);
         sb.append(", email= ").append(email);

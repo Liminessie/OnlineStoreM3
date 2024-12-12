@@ -8,6 +8,7 @@ public class Product {
     private float salePrice;
     private int category;
     private String color;
+    private int amount;
 
     public Product() {
         
@@ -51,7 +52,9 @@ public class Product {
     }
 
     public void setSalePrice(float salePrice) {
-        this.salePrice = salePrice;
+        if (checkPrice(salePrice)) {
+            this.salePrice = salePrice;
+        }
     }
 
     public int getCategory() {
@@ -69,7 +72,41 @@ public class Product {
     public void setColor(String color) {
         this.color = color;
     }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        if (checkAmount(amount)) {
+            this.amount = amount;
+            if (lowStock(amount) == "Low stock") {
+                System.out.println("Low stock");
+            }
+        }
+    }
     
+    public static boolean checkPrice(float price) {
+        if (price > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean checkAmount(int amount) {
+        if (amount > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public static String lowStock(int amount) {
+        if (amount < 10) {
+            return "Low stock";
+        }
+        return "High stock";
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

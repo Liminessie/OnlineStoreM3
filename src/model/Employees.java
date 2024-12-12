@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+import validation.Validator;
 
 public class Employees {
     private String name;
@@ -40,7 +41,11 @@ public class Employees {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        if (Validator.validateEmail(email)) {
+            this.email = email;
+        } else {
+            System.out.println("Invalid email");
+        }
     }
 
     public String getPhone() {
@@ -48,7 +53,11 @@ public class Employees {
     }
 
     public void setPhone(String phone) {
-        this.phone = phone;
+        if (Validator.validatePhone(phone)) {
+            this.phone = phone;
+        } else {
+            System.out.println("Invalid phone");
+        }
     }
 
     public float getSalary() {
@@ -64,19 +73,23 @@ public class Employees {
     }
 
     public void setHireDate(LocalDate hireDate) {
-        this.hireDate = hireDate;
+        if (Validator.validateDate(hireDate)) {
+            this.hireDate = hireDate;
+        } else {
+            System.out.println("Invalid date");
+        }
     }
     
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Product{");
-        sb.append("name= ").append(name);
-        sb.append("surname= ").append(surname);
-        sb.append(", email= ").append(email);
-        sb.append(", phone= ").append(phone);
-        sb.append(", salary= ").append(salary);
-        sb.append(", hire date= ").append(hireDate);
+        sb.append("Employee{");
+        sb.append(" name= ").append(name).append(" ");
+        sb.append("surname= ").append(surname).append(" ");
+        sb.append("email= ").append(email).append(" ");
+        sb.append("phone= ").append(phone).append(" ");
+        sb.append("salary= ").append(salary).append(" ");
+        sb.append("hire date= ").append(hireDate).append(" ");
         sb.append('}');
         return sb.toString();
     }

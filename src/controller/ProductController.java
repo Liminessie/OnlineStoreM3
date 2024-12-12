@@ -20,8 +20,8 @@ public class ProductController {
         
     }
 
-    public void deleteProduct() {
-
+    public void deleteProduct(int index) {
+        productList.remove(index);
     }
 
     public void listProduct() {
