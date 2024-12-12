@@ -25,6 +25,8 @@ public class ProductController {
     }
 
     public void listProduct() {
-        
+        for (Product product : productList) {
+            System.out.println(product.getName());
+        }
     }
 }
