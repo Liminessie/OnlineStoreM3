@@ -8,23 +8,27 @@ public class ProductController {
     
     ArrayList<Product> productList = new ArrayList<>();
 
-    public void addProduct(String name, String description, float supplierPrice, float salePrice, int category, String color) {
-        productList.add(new Product(name, description, supplierPrice, salePrice, category, color));
+    public void addElement(String name, String description, float supplierPrice, float salePrice, int category, String color, boolean stock, int unit) {
+        productList.add(new Product(name, description, supplierPrice, salePrice, category, color, stock, unit));
     }
 
-    public void findProduct() {
-        productList.size();
+    public void findElement(int id) {
+        productList.get(id);
     }
 
-    public void updateProduct() {
-        
+    public void updateElement(String type, Product product) {
+        productList.set(0, product);
     }
 
-    public void deleteProduct() {
-
+    public void deleteElement(int id) {
+        productList.remove(id);
     }
 
-    public void listProduct() {
-        
+    public void listElement() {
+        productList.forEach((product) -> {
+            System.out.println(product);
+        });
     }
+
+    
 }

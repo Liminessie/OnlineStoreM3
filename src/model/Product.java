@@ -8,18 +8,22 @@ public class Product {
     private float salePrice;
     private int category;
     private String color;
+    private boolean stock;
+    private int unit;
 
     public Product() {
         
     }
 
-    public Product(String productName, String productDescription, float productSupplierPrice, float productSalePrice, int productCategory, String productColor) {
+    public Product(String productName, String productDescription, float productSupplierPrice, float productSalePrice, int productCategory, String productColor, boolean productStock, int productUnit) {
         this.name = productName;
         this.description = productDescription;
         this.supplierPrice = productSupplierPrice;
         this.salePrice = productSalePrice;
         this.category = productCategory;
         this.color = productColor;
+        this.stock = productStock;
+        this.unit = productUnit;
     }
 
     public String getName() {
@@ -80,6 +84,8 @@ public class Product {
         sb.append(", salePrice= ").append(salePrice);
         sb.append(", category= ").append(category);
         sb.append(", color= ").append(color);
+        sb.append(", stock= ").append(stock);
+        sb.append(", unit= ").append(unit);
         sb.append('}');
         return sb.toString();
     }

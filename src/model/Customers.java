@@ -1,7 +1,5 @@
 package model;
 
-import java.time.LocalDate;
-
 public class Customers {
     
     private String name;
@@ -9,9 +7,9 @@ public class Customers {
     private String email;
     private String phone;
     private String residence;
-    private LocalDate dateOfUnion;
+    private String dateOfUnion;
 
-    public Customers(String customerName, String customerSurname, String customerEmail, String customerPhone, String customerResidence, LocalDate customerDate) {
+    public Customers(String customerName, String customerSurname, String customerEmail, String customerPhone, String customerResidence, String customerDate) {
         this.name = customerName;
         this.surname = customerSurname;
         this.email = customerEmail;
@@ -60,11 +58,11 @@ public class Customers {
         this.residence = residence;
     }
 
-    public LocalDate getDateUnion() {
+    public String getDateUnion() {
         return dateOfUnion;
     }
 
-    public void setDateUnion(LocalDate dateUnion) {
+    public void setDateUnion(String dateUnion) {
         this.dateOfUnion = dateUnion;
     }
     @Override

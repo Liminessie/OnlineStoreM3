@@ -1,16 +1,18 @@
 package model;
 
-import java.time.LocalDate;
-
 public class Employees {
     private String name;
     private String surname;
     private String email;
     private String phone;
     private float salary;
-    private LocalDate hireDate;
+    private String hireDate;
 
-    public Employees(String employeeName, String employeeSurname, String employeeEmail, String employeePhone, float employeeSalary, LocalDate employeeHireDate) {
+    public Employees() {
+
+    }
+ 
+    public Employees(String employeeName, String employeeSurname, String employeeEmail, String employeePhone, float employeeSalary, String employeeHireDate) {
         this.name = employeeName;
         this.surname = employeeSurname;
         this.email = employeeEmail;
@@ -59,11 +61,11 @@ public class Employees {
         this.salary = salary;
     }
 
-    public LocalDate getHireDate() {
+    public String getHireDate() {
         return hireDate;
     }
 
-    public void setHireDate(LocalDate hireDate) {
+    public void setHireDate(String hireDate) {
         this.hireDate = hireDate;
     }
     
