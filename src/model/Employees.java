@@ -1,5 +1,7 @@
 package model;
 
+import validation.Validator;
+
 public class Employees {
     private String name;
     private String surname;
@@ -66,7 +68,12 @@ public class Employees {
     }
 
     public void setHireDate(String hireDate) {
-        this.hireDate = hireDate;
+        if (Validator.validateDate(hireDate)) {
+            this.hireDate = hireDate;
+        } else {
+            System.out.println("Incorrect format or date");
+        }
+        
     }
     
     @Override

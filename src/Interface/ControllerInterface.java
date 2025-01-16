@@ -1,7 +1,7 @@
 package Interface;
 
 import java.util.ArrayList;
-import model.Product;
+//import model.Product;
 
 public interface ControllerInterface {
     
