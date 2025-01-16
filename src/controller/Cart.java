@@ -22,8 +22,8 @@ public class Cart extends Product implements ControllerInterface{
     }
 
     @Override
-    public void deleteElement(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void deleteElement(ArrayList arrayList, int id) {
+        arrayList.remove(id);
     }
 
     @Override
@@ -38,12 +38,8 @@ public class Cart extends Product implements ControllerInterface{
         
     }
 
-    @SuppressWarnings("unchecked")
-    @Override
-    public void updateElement(ArrayList arraylist, Object object, int id, String value) {
+    public void updateElement(ArrayList arraylist, int id, String value) {
         arraylist.set(id, value);
     }
-
-    
     
 }
