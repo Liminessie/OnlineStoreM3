@@ -1,19 +1,18 @@
 package Interface;
 
 import java.util.ArrayList;
-//import model.Product;
 
 public interface ControllerInterface {
     
-    public void addElement(ArrayList<Object> arraylist);
+    public void addElement(ArrayList arraylist, Object object);
      // Se implementa en Cart
     
-    public void findElement(int id);
+    public void findElement(ArrayList arrayList, int id);
     
     
-    //public void updateElement(String type, Object object);
+    public void updateElement(ArrayList arraylist, Object object, int id, String value);
     
     public void deleteElement(int id);
     
-    public void listElement();    
+    public void listElement(@SuppressWarnings("rawtypes") ArrayList arraylist);    
 }

@@ -15,18 +15,10 @@ public class Cart extends Product implements ControllerInterface{
     public Cart(ArrayList<Product> inventory){
         this.inventory = inventory;
     }
-    
-//    public void addElement(Product product) {
-//        if(inventory.contains(product)){
-//            productList.add(product);
-//        } else{
-//            System.out.println("Error: El producto no existe en el inventario");
-//        }
-//    }
 
     @Override
-    public void findElement(int id) {
-        
+    public void findElement(ArrayList arrayList, int id) {
+        arrayList.get(id);
     }
 
     @Override
@@ -35,15 +27,21 @@ public class Cart extends Product implements ControllerInterface{
     }
 
     @Override
-    public void listElement() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void addElement(@SuppressWarnings("rawtypes") ArrayList arraylist) {
+    public void listElement(@SuppressWarnings("rawtypes") ArrayList arraylist) {
         for (Object object : arraylist) {
             System.out.println((Product) object);
         }
+    }
+
+    @Override
+    public void addElement(@SuppressWarnings("rawtypes") ArrayList arraylist, Object object) {
+        
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public void updateElement(ArrayList arraylist, Object object, int id, String value) {
+        arraylist.set(id, value);
     }
 
     
