@@ -2,32 +2,35 @@ package controller;
 
 import java.util.ArrayList;
 
+import Interface.ControllerInterface;
 import model.Employees;
 
-public class EmployeeController {
+public class EmployeeController implements ControllerInterface<Employees> {
 
-    ArrayList<Employees> employeeList = new ArrayList<>();
-
-    public void addElement(String name, String lastName, String email, String phone, float salary, String hireDate) {
-        employeeList.add(new Employees(name, lastName, email, phone, salary, hireDate));
+    @Override
+    public void addElement(ArrayList<Employees> arraylist, Employees object) {
+        
     }
 
-
-    public void findElement(int id) {
-        employeeList.get(id);
+    @Override
+    public void findElement(ArrayList<Employees> arraylist, int id) {
+        
     }
 
-    public void updateElement(String type, Employees employee) {
-        employeeList.set(0, employee);
+    @Override
+    public void updateElement(ArrayList<Employees> arraylist, int id, Employees value) {
+
     }
 
-    public void deleteElement(int id) {
-        employeeList.remove(id);
+    @Override
+    public void deleteElement(ArrayList<Employees> arraylist, int id) {
+        
     }
 
-    public void listElement() {
-        employeeList.forEach((employee) -> {
-            System.out.println(employee);
-        });
+    @Override
+    public void listElement(ArrayList<Employees> arraylist) {
+        
     }
+
+    
 }

@@ -2,15 +2,15 @@ package Interface;
 
 import java.util.ArrayList;
 
-public interface ControllerInterface {
+public interface ControllerInterface<t> {
     
-    public void addElement(ArrayList arraylist, Object object);
+    public void addElement(ArrayList<t> arraylist, t object);
     
-    public void findElement(ArrayList arrayList, int id);
+    public void findElement(ArrayList<t> arrayList, int id);
     
-    public void updateElement(ArrayList arraylist, int id, String value);
+    public void updateElement(ArrayList<t> arraylist, int id, t object);
     
-    public void deleteElement(ArrayList arraylist, int id);
+    public void deleteElement(ArrayList<t> arraylist, int id);
     
-    public void listElement(@SuppressWarnings("rawtypes") ArrayList arraylist);    
+    public void listElement(ArrayList<t> arraylist);
 }

@@ -2,31 +2,35 @@ package controller;
 
 import java.util.ArrayList;
 
+import Interface.ControllerInterface;
 import model.Customers;
 
-public class CustomerController {
-    
-    ArrayList<Customers> customerList = new ArrayList<>();
+public class CustomerController implements ControllerInterface<Customers> {
 
-    public void addElement(String customerName, String customerSurname, String customerEmail, String customerPhone, String customerResidence, String customerDate) {
-        customerList.add(new Customers(customerName, customerSurname, customerEmail, customerPhone, customerResidence, customerDate));
+    @Override
+    public void addElement(ArrayList<Customers> arraylist, Customers object) {
+        
     }
 
-    public void findElement(int id) {
-        customerList.get(id);
+    @Override
+    public void findElement(ArrayList<Customers> arrayList, int id) {
+        
     }
 
-    public void updateElement(String type, Customers customer) {
-        customerList.set(0, customer);
+    @Override
+    public void updateElement(ArrayList<Customers> arraylist, int id, Customers object) {
+        
     }
 
-    public void deleteElement(int id) {
-        customerList.remove(id);
+    @Override
+    public void deleteElement(ArrayList<Customers> arraylist, int id) {
+        
     }
 
-    public void listElement() {
-        customerList.forEach((product) -> {
-            System.out.println(product);
-        });
+    @Override
+    public void listElement(ArrayList<Customers> arraylist) {
+        
     }
+
+
 }
