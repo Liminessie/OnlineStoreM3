@@ -1,18 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controller;
 
 import Interface.ControllerInterface;
 import java.util.ArrayList;
 import model.Product;
 
-/**
- *
- * @author Johana
- */
-public class Cart implements ControllerInterface{
+public class Cart extends Product implements ControllerInterface{
     
     ArrayList<Product> productList = new ArrayList<>();
     ArrayList<Product> inventory; 
@@ -48,7 +40,7 @@ public class Cart implements ControllerInterface{
     }
 
     @Override
-    public void addElement(ArrayList arraylist) {
+    public void addElement(@SuppressWarnings("rawtypes") ArrayList arraylist) {
         for (Object object : arraylist) {
             System.out.println((Product) object);
         }
