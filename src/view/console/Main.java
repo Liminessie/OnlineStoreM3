@@ -1,17 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package view.console;
 
 import controller.Cart;
 import java.util.ArrayList;
 import model.Product;
 
-/**
- *
- * @author Johana
- */
 public class Main {
     static ArrayList<Product> productList = new ArrayList<Product>();
     
@@ -40,7 +32,7 @@ public class Main {
         
         Cart cart = new Cart();
         
-        cart.addElement(productList);
+        cart.listElement(productList);
         
     }
   
