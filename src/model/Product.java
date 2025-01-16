@@ -1,7 +1,7 @@
 package model;
 
 public class Product {
-    
+    private int productID;  
     private String name;
     private String description;
     private float supplierPrice;
@@ -15,7 +15,8 @@ public class Product {
         
     }
 
-    public Product(String productName, String productDescription, float productSupplierPrice, float productSalePrice, int productCategory, String productColor, boolean productStock, int productUnit) {
+    public Product(int productID, String productName, String productDescription, float productSupplierPrice, float productSalePrice, int productCategory, String productColor, boolean productStock, int productUnit) {
+        this.productID = productID;
         this.name = productName;
         this.description = productDescription;
         this.supplierPrice = productSupplierPrice;
@@ -26,6 +27,14 @@ public class Product {
         this.unit = productUnit;
     }
 
+    public int getID(){
+        return productID;
+    }    
+    
+    public void setID(int id) {
+        this.productID = id;
+    }
+    
     public String getName() {
         return name;
     }
@@ -78,6 +87,7 @@ public class Product {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Product{");
+        sb.append("Product ID= ").append(productID);
         sb.append("name= ").append(name);
         sb.append(", description= ").append(description);
         sb.append(", supplierPrice= ").append(supplierPrice);

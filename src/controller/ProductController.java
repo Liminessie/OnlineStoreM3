@@ -8,8 +8,8 @@ public class ProductController {
     
     ArrayList<Product> productList = new ArrayList<>();
 
-    public void addElement(String name, String description, float supplierPrice, float salePrice, int category, String color, boolean stock, int unit) {
-        productList.add(new Product(name, description, supplierPrice, salePrice, category, color, stock, unit));
+    public void addElement(int id, String name, String description, float supplierPrice, float salePrice, int category, String color, boolean stock, int unit) {
+        productList.add(new Product(id, name, description, supplierPrice, salePrice, category, color, stock, unit));
     }
 
     public void findElement(int id) {
