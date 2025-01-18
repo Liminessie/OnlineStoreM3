@@ -3,32 +3,32 @@ package controller;
 import java.util.ArrayList;
 
 import Interface.ControllerInterface;
-import model.Employees;
+import model.Employee;
 
-public class EmployeeController implements ControllerInterface<Employees> {
+public class EmployeeController implements ControllerInterface<Employee> {
 
     @Override
-    public void addElement(ArrayList<Employees> arraylist, Employees object) {
+    public void addElement(ArrayList<Employee> arraylist, Employee object) {
         
     }
 
     @Override
-    public void findElement(ArrayList<Employees> arraylist, int id) {
+    public void findElement(ArrayList<Employee> arraylist, int id) {
         
     }
 
     @Override
-    public void updateElement(ArrayList<Employees> arraylist, int id, Employees value) {
+    public void updateElement(ArrayList<Employee> arraylist, int id, Employee value) {
 
     }
 
     @Override
-    public void deleteElement(ArrayList<Employees> arraylist, int id) {
+    public void deleteElement(ArrayList<Employee> arraylist, int id) {
         
     }
 
     @Override
-    public void listElement(ArrayList<Employees> arraylist) {
+    public void listElement(ArrayList<Employee> arraylist) {
         
     }
 
