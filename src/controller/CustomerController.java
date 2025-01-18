@@ -3,32 +3,32 @@ package controller;
 import java.util.ArrayList;
 
 import Interface.ControllerInterface;
-import model.Customers;
+import model.Customer;
 
-public class CustomerController implements ControllerInterface<Customers> {
+public class CustomerController implements ControllerInterface<Customer> {
 
     @Override
-    public void addElement(ArrayList<Customers> arraylist, Customers object) {
+    public void addElement(ArrayList<Customer> arraylist, Customer object) {
         
     }
 
     @Override
-    public void findElement(ArrayList<Customers> arrayList, int id) {
+    public void findElement(ArrayList<Customer> arrayList, int id) {
         
     }
 
     @Override
-    public void updateElement(ArrayList<Customers> arraylist, int id, Customers object) {
+    public void updateElement(ArrayList<Customer> arraylist, int id, Customer object) {
         
     }
 
     @Override
-    public void deleteElement(ArrayList<Customers> arraylist, int id) {
+    public void deleteElement(ArrayList<Customer> arraylist, int id) {
         
     }
 
     @Override
-    public void listElement(ArrayList<Customers> arraylist) {
+    public void listElement(ArrayList<Customer> arraylist) {
         
     }
 

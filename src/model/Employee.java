@@ -1,21 +1,26 @@
 package model;
 
-public class Customers {
-    
+import validation.Validator;
+
+public class Employee {
     private String name;
     private String surname;
     private String email;
     private String phone;
-    private String residence;
-    private String dateOfUnion;
+    private float salary;
+    private String hireDate;
 
-    public Customers(String customerName, String customerSurname, String customerEmail, String customerPhone, String customerResidence, String customerDate) {
-        this.name = customerName;
-        this.surname = customerSurname;
-        this.email = customerEmail;
-        this.phone = customerPhone;
-        this.residence = customerResidence;
-        this.dateOfUnion = customerDate;
+    public Employee() {
+
+    }
+ 
+    public Employee(String employeeName, String employeeSurname, String employeeEmail, String employeePhone, float employeeSalary, String employeeHireDate) {
+        this.name = employeeName;
+        this.surname = employeeSurname;
+        this.email = employeeEmail;
+        this.phone = employeePhone;
+        this.salary = employeeSalary;
+        this.hireDate = employeeHireDate;
     }
 
     public String getName() {
@@ -50,21 +55,27 @@ public class Customers {
         this.phone = phone;
     }
 
-    public String getResidence() {
-        return residence;
+    public float getSalary() {
+        return salary;
     }
 
-    public void setResidence(String residence) {
-        this.residence = residence;
+    public void setSalary(float salary) {
+        this.salary = salary;
     }
 
-    public String getDateUnion() {
-        return dateOfUnion;
+    public String getHireDate() {
+        return hireDate;
     }
 
-    public void setDateUnion(String dateUnion) {
-        this.dateOfUnion = dateUnion;
+    public void setHireDate(String hireDate) {
+        if (Validator.validateDate(hireDate)) {
+            this.hireDate = hireDate;
+        } else {
+            System.out.println("Incorrect format or date");
+        }
+        
     }
+    
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -73,10 +84,9 @@ public class Customers {
         sb.append("surname= ").append(surname);
         sb.append(", email= ").append(email);
         sb.append(", phone= ").append(phone);
-        sb.append(", residence= ").append(residence);
-        sb.append(", date of union= ").append(dateOfUnion);
+        sb.append(", salary= ").append(salary);
+        sb.append(", hire date= ").append(hireDate);
         sb.append('}');
         return sb.toString();
     }
-
 }
