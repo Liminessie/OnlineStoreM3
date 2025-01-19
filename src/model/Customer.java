@@ -7,17 +7,21 @@ public class Customer {
     private String email;
     private String phone;
     private String residence;
-    private String registrationDate;  // Cambié de dateOfUnion a registrationDate
+    private String registrationDate;
+    private String taxID; 
 
-    public Customer(String customerName, String customerSurname, String customerEmail, String customerPhone, String customerResidence, String customerRegistrationDate) {
-        this.name = customerName;
-        this.surname = customerSurname;
-        this.email = customerEmail;
-        this.phone = customerPhone;
-        this.residence = customerResidence;
-        this.registrationDate = customerRegistrationDate;  // Asignación del nuevo atributo
+    // Constructor
+    public Customer(String name, String surname, String email, String phone, String residence, String registrationDate, String taxID) {
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.phone = phone;
+        this.residence = residence;
+        this.registrationDate = registrationDate;
+        this.taxID = taxID;
     }
 
+    // Getters y Setters
     public String getName() {
         return name;
     }
@@ -58,14 +62,23 @@ public class Customer {
         this.residence = residence;
     }
 
-    public String getRegistrationDate() {  // Método getter actualizado
+    public String getRegistrationDate() {  
         return registrationDate;
     }
 
-    public void setRegistrationDate(String registrationDate) {  // Método setter actualizado
+    public void setRegistrationDate(String registrationDate) {  
         this.registrationDate = registrationDate;
     }
 
+    public String getTaxID() {
+        return taxID;
+    }
+
+    public void setTaxID(String taxID) { 
+        this.taxID = taxID;
+    }
+
+    
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -75,8 +88,8 @@ public class Customer {
         sb.append(", email= ").append(email);
         sb.append(", phone= ").append(phone);
         sb.append(", residence= ").append(residence);
-        sb.append(", registrationDate= ").append(registrationDate);  // Actualización en el toString
-        sb.append('}');
+        sb.append(", registrationDate= ").append(registrationDate);
+        sb.append(", taxID= ").append(taxID); 
         return sb.toString();
     }
 
