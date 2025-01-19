@@ -14,8 +14,6 @@ public class Customer {
     // Constructor
     public Customer(int customerId, String name, String surname, String email, String phone, String residence, String registrationDate, String taxID) {
         this.id = customerId;
-
-    public Customer(String name, String surname, String email, String phone, String residence, String registrationDate, String taxID) {
         this.name = name;
         this.surname = surname;
         this.email = email;
