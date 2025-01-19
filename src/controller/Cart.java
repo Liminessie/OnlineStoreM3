@@ -5,11 +5,8 @@ import java.util.ArrayList;
 import model.Product;
 
 public class Cart extends Product implements ControllerInterface<Product> {
-    
-    // Hey Pol!! Esta será una lista privada para cada uno de los clientes
-    // tomará los productos de la ArrayList de Products que hará de catálogo.
+   
     ArrayList<Product> cartList = new ArrayList<>();
-    
     
     public Cart(){
     }

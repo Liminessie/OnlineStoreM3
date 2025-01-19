@@ -1,3 +1,5 @@
+package view.console;
+
 import controller.Cart;
 import model.Product;
 import java.util.ArrayList;
