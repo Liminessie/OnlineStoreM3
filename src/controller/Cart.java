@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import model.Product;
 
 public class Cart extends Product implements ControllerInterface<Product> {
-    
+   
     ArrayList<Product> cartList = new ArrayList<>();
     
     public Cart(){
