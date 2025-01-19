@@ -1,3 +1,5 @@
+package view.console;
+
 import controller.Cart;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -20,11 +22,20 @@ public class Main {
         ArrayList<Employee> employees = new ArrayList<>();
         ArrayList<Product> productCatalog = new ArrayList<>();
 
-        // Carga de productos
-        productCatalog.add(new Product(1, "Vibrador Clásico", "Vibrador de silicona", 15.0f, 29.99f, 1, "Rosa", true, 50));
-        productCatalog.add(new Product(2, "Lubricante", "Lubricante a base de agua", 3.5f, 9.99f, 2, "Transparente", true, 200));
+        // Productos
         
-        customers.add(new Customer(1, "Juan", "Pérez", "juan@example.com", "123456789", "Calle 123", "2024-01-01", "CIF123"));
+        productCatalog.add(new Product(1, "Vibrador Clásico", "Vibrador de silicona con múltiples velocidades", 15.0f, 29.99f, 1, "Rosa", true, 50));
+        productCatalog.add(new Product(2, "Lubricante", "Lubricante a base de agua, 250ml", 3.5f, 9.99f, 2, "Transparente", true, 200));
+        productCatalog.add(new Product(3, "Anillo Vibrador", "Anillo vibrador para parejas", 5.0f, 14.99f, 3, "Morado", true, 75));
+        productCatalog.add(new Product(4, "Lencería Sexy", "Conjunto de encaje para ocasiones especiales", 10.0f, 34.99f, 4, "Negro", true, 40));
+        productCatalog.add(new Product(5, "Plug Anal", "Plug anal pequeño de silicona", 8.0f, 19.99f, 5, "Rojo", true, 60));
+        productCatalog.add(new Product(6, "Bolas Kegel", "Bolas para ejercicios de suelo pélvico", 6.0f, 24.99f, 6, "Lila", true, 30));
+        productCatalog.add(new Product(7, "Masturbador Masculino", "Masturbador con textura realista", 12.0f, 39.99f, 7, "Beige", true, 20));
+        productCatalog.add(new Product(8, "Aceite de Masaje", "Aceite de masaje aromático, 150ml", 4.5f, 12.99f, 8, "Ámbar", true, 120));
+        productCatalog.add(new Product(9, "Esposas", "Esposas metálicas con forro de felpa", 7.0f, 16.99f, 9, "Rojo", true, 100));
+        productCatalog.add(new Product(10, "Fusta", "Fusta pequeña de cuero para juegos BDSM", 5.5f, 14.99f, 10, "Negro", true, 25));
+
+                customers.add(new Customer(1, "Juan", "Pérez", "juan@example.com", "123456789", "Calle 123", "2024-01-01", "CIF123"));
         customers.add(new Customer(2, "María", "López", "maria@example.com", "987654321", "Avenida 456", "2024-02-01", "CIF456"));
 
         // Controladores
@@ -242,7 +253,12 @@ public class Main {
         }
         return null;
     }
-    
+    /**
+     * función auxiiliar para buscar a los clientesp por su ID. 
+     * @param customers
+     * @param id
+     * @return 
+     */
     private static Customer findCustomerById(ArrayList<Customer> customers, int id) {
         for (Customer customer : customers) {
             if (customer.getId() == id) {
