@@ -7,7 +7,7 @@ import model.Product;
 public class Cart extends Product implements ControllerInterface<Product> {
     
     // Hey Pol!! Esta será una lista privada para cada uno de los clientes
-    // tomará los productos de la ArrayList de Products.
+    // tomará los productos de la ArrayList de Products que hará de catálogo.
     ArrayList<Product> cartList = new ArrayList<>();
     
     
@@ -58,24 +58,19 @@ public class Cart extends Product implements ControllerInterface<Product> {
         }
     }
 
-    
-
     @Override
-    public void updateElement(ArrayList<Product> arraylist, int id, Product value) {
-        arraylist.set(id, value);
-    }
-    
-    //Sobrecarga para actualizar cantidad de los productos de manera eficiente. 
-    public void updateElement(ArrayList<Product> arrayList, int id, Product value, Product updatedProduct) {
-        Product product = findProductByID(arrayList, id);
+    public void updateElement(ArrayList<Product> arrayList, int id, Product updatedProduct) {
+            Product product = findProductByID(arrayList, id);
         if (product != null) {
             int index = arrayList.indexOf(product);
             arrayList.set(index, updatedProduct);
-            System.out.println("Cantidad actualizada");
+            System.out.println("Producto actualizado");
+        } else {
+            System.out.println("Producto con ID " + id + " no encontrado");
         }
     }
     
-    // Método para buscar productos de manera eficiente! 
+    // Método para buscar productos por .getID no index!! 
     private Product findProductByID(ArrayList<Product> arrayList, int id) {
         for (Product product : arrayList) {
             if (product.getID() == id) {
