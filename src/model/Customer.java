@@ -1,7 +1,7 @@
 package model;
 
 public class Customer {
-
+    private int id;
     private String name;
     private String surname;
     private String email;
@@ -11,7 +11,8 @@ public class Customer {
     private String taxID; 
 
     // Constructor
-    public Customer(String name, String surname, String email, String phone, String residence, String registrationDate, String taxID) {
+    public Customer(int customerId, String name, String surname, String email, String phone, String residence, String registrationDate, String taxID) {
+        this.id = customerId;
         this.name = name;
         this.surname = surname;
         this.email = email;
@@ -22,6 +23,14 @@ public class Customer {
     }
 
     // Getters y Setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int customerId) {
+        this.id = customerId;
+    }
+
     public String getName() {
         return name;
     }

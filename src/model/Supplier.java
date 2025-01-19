@@ -3,18 +3,28 @@ package model;
 import java.time.LocalDate;
 
 public class Supplier {
+    private int id;
     private String name;
     private String email;
     private String phone;
     private int supplierType;
     private LocalDate lastShipment;
 
-    public Supplier(String supplierName, String supplierEmail, String supplierPhone, int supplierType, LocalDate supplierLastShipment) {
+    public Supplier(int supplierId, String supplierName, String supplierEmail, String supplierPhone, int supplierType, LocalDate supplierLastShipment) {
+        this.id = supplierId;
         this.name = supplierName;
         this.email = supplierEmail;
         this.phone = supplierPhone;
         this.supplierType = supplierType;
         this.lastShipment = supplierLastShipment;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int supplierId) {
+        this.id = supplierId;
     }
 
     public String getName() {
