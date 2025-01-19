@@ -6,10 +6,7 @@ import model.Product;
 
 public class Cart extends Product implements ControllerInterface<Product> {
     
-    // Hey Pol!! Esta será una lista privada para cada uno de los clientes
-    // tomará los productos de la ArrayList de Products.
     ArrayList<Product> cartList = new ArrayList<>();
-    
     
     public Cart(){
     }

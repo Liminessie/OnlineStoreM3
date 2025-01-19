@@ -3,6 +3,7 @@ package model;
 import validation.Validator;
 
 public class Employee {
+    private int id;
     private String name;
     private String surname;
     private String email;
@@ -14,13 +15,22 @@ public class Employee {
 
     }
  
-    public Employee(String employeeName, String employeeSurname, String employeeEmail, String employeePhone, float employeeSalary, String employeeHireDate) {
+    public Employee(int employeeId, String employeeName, String employeeSurname, String employeeEmail, String employeePhone, float employeeSalary, String employeeHireDate) {
+        this.id = employeeId;
         this.name = employeeName;
         this.surname = employeeSurname;
         this.email = employeeEmail;
         this.phone = employeePhone;
         this.salary = employeeSalary;
         this.hireDate = employeeHireDate;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int employeeId) {
+        this.id = employeeId;
     }
 
     public String getName() {
