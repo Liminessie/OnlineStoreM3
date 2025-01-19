@@ -1,6 +1,5 @@
 package controller;
 
-import Interface.ControllerInterface;
 import java.util.ArrayList;
 import model.Customer;
 import model.Product;
