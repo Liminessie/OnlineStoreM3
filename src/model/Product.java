@@ -82,21 +82,27 @@ public class Product {
     public void setColor(String color) {
         this.color = color;
     }
+
+    public boolean isStock() {
+        return stock;
+    }
+
+    public void setStock(boolean stock) {
+        this.stock = stock;
+    }
+
+    public int getUnit() {
+        return unit;
+    }
+
+    public void setUnit(int unit) {
+        this.unit = unit;
+    }
     
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Product{");
-        sb.append("Product ID= ").append(productID);
-        sb.append("name= ").append(name);
-        sb.append(", description= ").append(description);
-        sb.append(", supplierPrice= ").append(supplierPrice);
-        sb.append(", salePrice= ").append(salePrice);
-        sb.append(", category= ").append(category);
-        sb.append(", color= ").append(color);
-        sb.append(", stock= ").append(stock);
-        sb.append(", unit= ").append(unit);
-        sb.append('}');
-        return sb.toString();
+        return String.format("Producto [ID: %d, Nombre: %s, Descripción: %s, Precio Proveedor: %.2f, Precio de Venta: %.2f, Categoría: %d, Color: %s, Stock Disponible: %b, Unidades: %d]",
+                             productID, name, description, supplierPrice, salePrice, category, color, stock, unit);
     }
 }
+

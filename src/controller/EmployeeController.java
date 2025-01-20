@@ -2,32 +2,44 @@ package controller;
 
 import java.util.ArrayList;
 
-import model.Employees;
+import Interface.ControllerInterface;
+import model.Employee;
 
-public class EmployeeController {
+public class EmployeeController implements ControllerInterface<Employee> {
 
-    ArrayList<Employees> employeeList = new ArrayList<>();
-
-    public void addElement(String name, String lastName, String email, String phone, float salary, String hireDate) {
-        employeeList.add(new Employees(name, lastName, email, phone, salary, hireDate));
+    @Override
+    public void addElement(ArrayList<Employee> arraylist, Employee object) {
+        arraylist.add(object);
     }
 
-
-    public void findElement(int id) {
-        employeeList.get(id);
+    @Override
+    public void findElement(ArrayList<Employee> arraylist, int id) {
+        arraylist.get(id);
     }
 
-    public void updateElement(String type, Employees employee) {
-        employeeList.set(0, employee);
+    @Override
+    public void updateElement(ArrayList<Employee> arraylist, int id, Employee value) {
+        arraylist.set(id, value);
     }
 
-    public void deleteElement(int id) {
-        employeeList.remove(id);
+    @Override
+    public void deleteElement(ArrayList<Employee> arraylist, int id) {
+        arraylist.remove(id);
     }
 
-    public void listElement() {
-        employeeList.forEach((employee) -> {
-            System.out.println(employee);
+    @Override
+    public void listElement(ArrayList<Employee> arraylist) {
+        arraylist.forEach((employee) -> {
+                System.out.println("ID: " + employee.getId());
+                System.out.println("Nombre: " + employee.getName());
+                System.out.println("Apellido: " + employee.getSurname());
+                System.out.println("Email: " + employee.getEmail());
+                System.out.println("Teléfono: " + employee.getPhone());
+                System.out.println("Salary: " + employee.getSalary());
+                System.out.println("Fecha de unión: " + employee.getHireDate());
+                System.out.println("====================================");
         });
     }
+
+    
 }

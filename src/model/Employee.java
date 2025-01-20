@@ -1,6 +1,9 @@
 package model;
 
-public class Employees {
+import validation.Validator;
+
+public class Employee {
+    private int id;
     private String name;
     private String surname;
     private String email;
@@ -8,17 +11,26 @@ public class Employees {
     private float salary;
     private String hireDate;
 
-    public Employees() {
+    public Employee() {
 
     }
  
-    public Employees(String employeeName, String employeeSurname, String employeeEmail, String employeePhone, float employeeSalary, String employeeHireDate) {
+    public Employee(int employeeId, String employeeName, String employeeSurname, String employeeEmail, String employeePhone, float employeeSalary, String employeeHireDate) {
+        this.id = employeeId;
         this.name = employeeName;
         this.surname = employeeSurname;
         this.email = employeeEmail;
         this.phone = employeePhone;
         this.salary = employeeSalary;
         this.hireDate = employeeHireDate;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int employeeId) {
+        this.id = employeeId;
     }
 
     public String getName() {
@@ -66,7 +78,12 @@ public class Employees {
     }
 
     public void setHireDate(String hireDate) {
-        this.hireDate = hireDate;
+        if (Validator.validateDate(hireDate)) {
+            this.hireDate = hireDate;
+        } else {
+            System.out.println("Incorrect format or date");
+        }
+        
     }
     
     @Override
