@@ -10,6 +10,7 @@ public class Customer {
     private String registrationDate;
     private String taxID; 
 
+
     // Constructor
     public Customer(int customerId, String name, String surname, String email, String phone, String residence, String registrationDate, String taxID) {
         this.id = customerId;

@@ -2,38 +2,269 @@ package view.console;
 
 import controller.Cart;
 import java.util.ArrayList;
+import java.util.Scanner;
+import model.Customer;
+import model.Employee;
 import model.Product;
+import controller.CustomerController;
+import controller.EmployeeController;
+import controller.Invoicing;
 
 public class Main {
-    static ArrayList<Product> productList = new ArrayList<Product>();
-    
+
     public static void main(String[] args) {
-        Product product1 = new Product(1, "Laptop", "Laptop con pantalla de 15 pulgadas", 500.00f, 750.00f, 1, "Negro", true, 10);
-        Product product2 = new Product(2, "Smartphone", "Smartphone con cámara de 48 MP", 200.00f, 350.00f, 2, "Azul", true, 25);
-        Product product3 = new Product(3, "Mouse", "Mouse inalámbrico ergonómico", 15.00f, 25.00f, 3, "Blanco", true, 50);
-        Product product4 = new Product(4, "Teclado", "Teclado mecánico retroiluminado", 45.00f, 70.00f, 3, "Negro", true, 20);
-        Product product5 = new Product(5, "Monitor", "Monitor 4K de 27 pulgadas", 250.00f, 400.00f, 4, "Gris", true, 15);
-        Product product6 = new Product(6, "Impresora", "Impresora láser multifunción", 150.00f, 230.00f, 5, "Blanco", false, 5);
-        Product product7 = new Product(7, "Audífonos", "Audífonos con cancelación de ruido", 80.00f, 120.00f, 6, "Negro", true, 30);
-        Product product8 = new Product(8, "Silla", "Silla ergonómica para oficina", 100.00f, 180.00f, 7, "Gris", true, 12);
-        Product product9 = new Product(9, "Webcam", "Webcam Full HD con micrófono", 40.00f, 60.00f, 8, "Negro", true, 22);
-        Product product10 = new Product(10, "Disco Duro", "Disco duro externo de 1TB", 50.00f, 80.00f, 9, "Negro", true,24);
-        
-        productList.add(product1);
-        productList.add(product2);
-        productList.add(product3);
-        productList.add(product4);
-        productList.add(product5);
-        productList.add(product6);
-        productList.add(product7);
-        productList.add(product8);
-        productList.add(product9);
-        productList.add(product10);
-        
+        Scanner scanner = new Scanner(System.in);
         Cart cart = new Cart();
+        Invoicing invoicing = new Invoicing();
+
+        // Listas de datos
+        ArrayList<Customer> customers = new ArrayList<>();
+        ArrayList<Employee> employees = new ArrayList<>();
+        ArrayList<Product> productCatalog = new ArrayList<>();
+
+        // Productos
         
-        cart.listElement(productList);
-        
+        productCatalog.add(new Product(1, "Vibrador Clásico", "Vibrador de silicona con múltiples velocidades", 15.0f, 29.99f, 1, "Rosa", true, 50));
+        productCatalog.add(new Product(2, "Lubricante", "Lubricante a base de agua, 250ml", 3.5f, 9.99f, 2, "Transparente", true, 200));
+        productCatalog.add(new Product(3, "Anillo Vibrador", "Anillo vibrador para parejas", 5.0f, 14.99f, 3, "Morado", true, 75));
+        productCatalog.add(new Product(4, "Lencería Sexy", "Conjunto de encaje para ocasiones especiales", 10.0f, 34.99f, 4, "Negro", true, 40));
+        productCatalog.add(new Product(5, "Plug Anal", "Plug anal pequeño de silicona", 8.0f, 19.99f, 5, "Rojo", true, 60));
+        productCatalog.add(new Product(6, "Bolas Kegel", "Bolas para ejercicios de suelo pélvico", 6.0f, 24.99f, 6, "Lila", true, 30));
+        productCatalog.add(new Product(7, "Masturbador Masculino", "Masturbador con textura realista", 12.0f, 39.99f, 7, "Beige", true, 20));
+        productCatalog.add(new Product(8, "Aceite de Masaje", "Aceite de masaje aromático, 150ml", 4.5f, 12.99f, 8, "Ámbar", true, 120));
+        productCatalog.add(new Product(9, "Esposas", "Esposas metálicas con forro de felpa", 7.0f, 16.99f, 9, "Rojo", true, 100));
+        productCatalog.add(new Product(10, "Fusta", "Fusta pequeña de cuero para juegos BDSM", 5.5f, 14.99f, 10, "Negro", true, 25));
+
+                customers.add(new Customer(1, "Juan", "Pérez", "juan@example.com", "123456789", "Calle 123", "2024-01-01", "CIF123"));
+        customers.add(new Customer(2, "María", "López", "maria@example.com", "987654321", "Avenida 456", "2024-02-01", "CIF456"));
+
+        // Controladores
+        CustomerController customerController = new CustomerController();
+        EmployeeController employeeController = new EmployeeController();
+
+        int mainChoice = -1;
+
+        while (mainChoice != 0) {
+            System.out.println("\n=== Menú Principal ===");
+            System.out.println("1. Gestión de Clientes");
+            System.out.println("2. Gestión de Empleados");
+            System.out.println("3. Gestión de Carritos");
+            System.out.println("4. Generar Factura");
+            System.out.println("0. Salir");
+            System.out.print("Elige una opción: ");
+            mainChoice = scanner.nextInt();
+            scanner.nextLine(); // Limpiar buffer
+
+            switch (mainChoice) {
+                case 1: // Gestión de Clientes
+                    manageCustomers(scanner, customerController, customers);
+                    break;
+
+                case 2: // Gestión de Empleados
+                    manageEmployees(scanner, employeeController, employees);
+                    break;
+
+                case 3: // Gestión de Carritos
+                    manageCarts(scanner, cart, productCatalog);
+                    break;
+
+                case 4: // Generar Factura
+                    System.out.print("Ingresa el ID del cliente para facturar: ");
+                    int customerId = scanner.nextInt();
+                    scanner.nextLine();
+                    Customer customer = findCustomerById(customers, customerId);
+                    
+                    if (customer != null) {
+                        invoicing.generateInvoice(customer, cart.getProductList());
+                    } else {
+                        System.out.println("Cliente no encontrado.");
+                    }
+                    break;
+
+                case 0:
+                    System.out.println("Saliendo del programa...");
+                    break;
+
+                default:
+                    System.out.println("Opción no válida.");
+            }
+        }
+        scanner.close();
     }
-  
+
+    private static void manageCustomers(Scanner scanner, CustomerController controller, ArrayList<Customer> customers) {
+        int customerChoice;
+        do {
+            System.out.println("\n--- Gestión de Clientes ---");
+            System.out.println("1. Añadir Cliente");
+            System.out.println("2. Buscar Cliente");
+            System.out.println("3. Actualizar Cliente");
+            System.out.println("4. Eliminar Cliente");
+            System.out.println("5. Listar Clientes");
+            System.out.println("0. Volver");
+            System.out.print("Elige una opción: ");
+            customerChoice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (customerChoice) {
+                case 1:
+                    System.out.print("ID: ");
+                    int id = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Nombre: ");
+                    String name = scanner.nextLine();
+                    System.out.print("Apellido: ");
+                    String surname = scanner.nextLine();
+                    System.out.print("Email: ");
+                    String email = scanner.nextLine();
+                    System.out.print("Teléfono: ");
+                    String phone = scanner.nextLine();
+                    System.out.print("Dirección: ");
+                    String residence = scanner.nextLine();
+                    System.out.print("Fecha de registro: ");
+                    String registrationDate = scanner.nextLine();
+                    System.out.print("CIF: ");
+                    String taxID = scanner.nextLine();
+
+                    Customer newCustomer = new Customer(id, name, surname, email, phone, residence, registrationDate, taxID);
+                    controller.addElement(customers, newCustomer);
+                    System.out.println("Cliente añadido con éxito.");
+                    break;
+                    
+                case 5:
+                    controller.listElement(customers);
+                    break;
+
+                case 0:
+                    System.out.println("Volviendo al menú principal...");
+                    break;
+
+                default:
+                    System.out.println("Opción no válida.");
+            }
+        } while (customerChoice != 0);
+    }
+
+    private static void manageEmployees(Scanner scanner, EmployeeController controller, ArrayList<Employee> employees) {
+        int employeeChoice;
+        do {
+            System.out.println("\n--- Gestión de Empleados ---");
+            System.out.println("1. Añadir Empleado");
+            System.out.println("2. Buscar Empleado");
+            System.out.println("3. Actualizar Empleado");
+            System.out.println("4. Eliminar Empleado");
+            System.out.println("5. Listar Empleados");
+            System.out.println("0. Volver");
+            System.out.print("Elige una opción: ");
+            employeeChoice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (employeeChoice) {
+                case 1:
+                    System.out.print("ID: ");
+                    int id = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Nombre: ");
+                    String name = scanner.nextLine();
+                    System.out.print("Apellido: ");
+                    String surname = scanner.nextLine();
+                    System.out.print("Email: ");
+                    String email = scanner.nextLine();
+                    System.out.print("Teléfono: ");
+                    String phone = scanner.nextLine();
+                    System.out.print("Salario: ");
+                    float salary = scanner.nextFloat();
+                    scanner.nextLine();
+                    System.out.print("Fecha de contratación: ");
+                    String hireDate = scanner.nextLine();
+
+                    Employee newEmployee = new Employee(id, name, surname, email, phone, salary, hireDate);
+                    controller.addElement(employees, newEmployee);
+                    System.out.println("Empleado añadido con éxito.");
+                    break;
+
+                case 5:
+                    controller.listElement(employees);
+                    break;
+
+                case 0:
+                    System.out.println("Volviendo al menú principal...");
+                    break;
+
+                default:
+                    System.out.println("Opción no válida.");
+            }
+        } while (employeeChoice != 0);
+    }
+
+    private static void manageCarts(Scanner scanner, Cart cart, ArrayList<Product> productCatalog) {
+        int cartChoice;
+        do {
+            System.out.println("\n--- Gestión de Carritos ---");
+            System.out.println("1. Añadir Producto al Carrito");
+            System.out.println("2. Listar Productos del Carrito");
+            System.out.println("3. Eliminar Producto del Carrito");
+            System.out.println("0. Volver");
+            System.out.print("Elige una opción: ");
+            cartChoice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (cartChoice) {
+                case 1:
+                    System.out.print("Ingresa el ID del producto: ");
+                    int productId = scanner.nextInt();
+                    scanner.nextLine();
+                    Product product = findProductById(productCatalog, productId);
+                    if (product != null) {
+                        cart.addElement(cart.getProductList(), product);
+                        System.out.println("Producto añadido al carrito.");
+                    } else {
+                        System.out.println("Producto no encontrado.");
+                    }
+                    break;
+
+                case 2:
+                    cart.listElement(cart.getProductList());
+                    break;
+
+                case 3:
+                    System.out.print("Ingresa el ID del producto a eliminar: ");
+                    int removeId = scanner.nextInt();
+                    scanner.nextLine();
+                    cart.deleteElement(cart.getProductList(), removeId);
+                    System.out.println("Producto eliminado del carrito.");
+                    break;
+
+                case 0:
+                    System.out.println("Volviendo al menú principal...");
+                    break;
+
+                default:
+                    System.out.println("Opción no válida.");
+            }
+        } while (cartChoice != 0);
+    }
+
+    private static Product findProductById(ArrayList<Product> productCatalog, int id) {
+        for (Product p : productCatalog) {
+            if (p.getID() == id) {
+                return p;
+            }
+        }
+        return null;
+    }
+    /**
+     * función auxiiliar para buscar a los clientesp por su ID. 
+     * @param customers
+     * @param id
+     * @return 
+     */
+    private static Customer findCustomerById(ArrayList<Customer> customers, int id) {
+        for (Customer customer : customers) {
+            if (customer.getId() == id) {
+                return customer;
+            }
+        }
+        return null;  // Retorna null si no encuentra el cliente
+    }
 }
