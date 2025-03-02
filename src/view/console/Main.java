@@ -35,9 +35,9 @@ public class Main {
         productCatalog.add(new Product(9, "Esposas", "Esposas metálicas con forro de felpa", 7.0f, 16.99f, 9, "Rojo", true, 100));
         productCatalog.add(new Product(10, "Fusta", "Fusta pequeña de cuero para juegos BDSM", 5.5f, 14.99f, 10, "Negro", true, 25));
 
-                customers.add(new Customer(1, "Juan", "Pérez", "juan@example.com", "123456789", "Calle 123", "2024-01-01", "CIF123"));
-        customers.add(new Customer(2, "María", "López", "maria@example.com", "987654321", "Avenida 456", "2024-02-01", "CIF456"));
-
+        customers.add(new Customer(1, "Juan", "Pérez", "juan@example.com", "123456789", "Calle 123", "2024-01-01", "CIF123", "pass123"));
+        customers.add(new Customer(2, "María", "López", "maria@example.com", "987654321", "Avenida 456", "2024-02-01", "CIF456", "pass456"));
+        
         // Controladores
         CustomerController customerController = new CustomerController();
         EmployeeController employeeController = new EmployeeController();
@@ -53,7 +53,7 @@ public class Main {
             System.out.println("0. Salir");
             System.out.print("Elige una opción: ");
             mainChoice = scanner.nextInt();
-            scanner.nextLine(); // Limpiar buffer
+            scanner.nextLine(); 
 
             switch (mainChoice) {
                 case 1: // Gestión de Clientes
@@ -125,8 +125,10 @@ public class Main {
                     String registrationDate = scanner.nextLine();
                     System.out.print("CIF: ");
                     String taxID = scanner.nextLine();
+                    System.out.print("Contraseña: ");
+                    String pass = scanner.nextLine();
 
-                    Customer newCustomer = new Customer(id, name, surname, email, phone, residence, registrationDate, taxID);
+                    Customer newCustomer = new Customer(id, name, surname, email, phone, residence, registrationDate, taxID, pass );
                     controller.addElement(customers, newCustomer);
                     System.out.println("Cliente añadido con éxito.");
                     break;

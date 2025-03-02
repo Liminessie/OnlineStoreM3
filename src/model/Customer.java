@@ -8,11 +8,15 @@ public class Customer {
     private String phone;
     private String residence;
     private String registrationDate;
-    private String taxID; 
+    private String taxID;
+    private String password;
 
-
+    public Customer(){
+        
+    }
+    
     // Constructor
-    public Customer(int customerId, String name, String surname, String email, String phone, String residence, String registrationDate, String taxID) {
+    public Customer(int customerId, String name, String surname, String email, String phone, String residence, String registrationDate, String taxID, String password) {
         this.id = customerId;
         this.name = name;
         this.surname = surname;
@@ -21,6 +25,7 @@ public class Customer {
         this.residence = residence;
         this.registrationDate = registrationDate;
         this.taxID = taxID;
+        this.password = password; 
     }
 
     // Getters y Setters
@@ -87,6 +92,16 @@ public class Customer {
     public void setTaxID(String taxID) { 
         this.taxID = taxID;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    
 
     
     @Override
