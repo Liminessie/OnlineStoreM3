@@ -55,11 +55,14 @@ public class Cart extends javax.swing.JPanel {
         panel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255), 5));
 
         addProdButton1.setBackground(new java.awt.Color(204, 204, 255));
-        addProdButton1.setForeground(new java.awt.Color(0, 0, 0));
         addProdButton1.setText("Añadir");
+        addProdButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addProdButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Fusta de Tiras ");
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
@@ -89,11 +92,9 @@ public class Cart extends javax.swing.JPanel {
         panel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255), 5));
 
         addProdButton3.setBackground(new java.awt.Color(204, 204, 255));
-        addProdButton3.setForeground(new java.awt.Color(0, 0, 0));
         addProdButton3.setText("Añadir");
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Dildo Cristal");
 
         javax.swing.GroupLayout panel3Layout = new javax.swing.GroupLayout(panel3);
@@ -123,11 +124,9 @@ public class Cart extends javax.swing.JPanel {
         panel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255), 5));
 
         addProdButton4.setBackground(new java.awt.Color(204, 204, 255));
-        addProdButton4.setForeground(new java.awt.Color(0, 0, 0));
         addProdButton4.setText("Añadir");
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Huevito Vibrador");
 
         javax.swing.GroupLayout panel4Layout = new javax.swing.GroupLayout(panel4);
@@ -158,11 +157,9 @@ public class Cart extends javax.swing.JPanel {
         panel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255), 5));
 
         addProdButton5.setBackground(new java.awt.Color(204, 204, 255));
-        addProdButton5.setForeground(new java.awt.Color(0, 0, 0));
         addProdButton5.setText("Añadir");
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Lubricante ");
 
         javax.swing.GroupLayout panel5Layout = new javax.swing.GroupLayout(panel5);
@@ -170,13 +167,14 @@ public class Cart extends javax.swing.JPanel {
         panel5Layout.setHorizontalGroup(
             panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel5Layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(addProdButton5)
+                .addGroup(panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel5Layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(addProdButton5))
+                    .addGroup(panel5Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jLabel5)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(49, 49, 49))
         );
         panel5Layout.setVerticalGroup(
             panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,11 +190,9 @@ public class Cart extends javax.swing.JPanel {
         panel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255), 5));
 
         addProdButton6.setBackground(new java.awt.Color(204, 204, 255));
-        addProdButton6.setForeground(new java.awt.Color(0, 0, 0));
         addProdButton6.setText("Añadir");
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Anillo Vibrador");
 
         javax.swing.GroupLayout panel6Layout = new javax.swing.GroupLayout(panel6);
@@ -226,11 +222,9 @@ public class Cart extends javax.swing.JPanel {
         panel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255), 5));
 
         addProdButton2.setBackground(new java.awt.Color(204, 204, 255));
-        addProdButton2.setForeground(new java.awt.Color(0, 0, 0));
         addProdButton2.setText("Añadir");
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Lencería Sexy");
 
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
@@ -307,6 +301,10 @@ public class Cart extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addProdButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProdButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addProdButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
