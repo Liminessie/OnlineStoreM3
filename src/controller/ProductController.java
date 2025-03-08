@@ -2,33 +2,32 @@ package controller;
 
 import java.util.ArrayList;
 
+import Interface.ControllerInterface;
 import model.Product;
 
-public class ProductController {
-    
-    ArrayList<Product> productList = new ArrayList<>();
+public class ProductController implements ControllerInterface<Product> {
 
-    public void addElement(int id, String name, String description, float supplierPrice, float salePrice, int category, String color, boolean stock, int unit) {
-        productList.add(new Product(id, name, description, supplierPrice, salePrice, category, color, stock, unit));
+    public void addElement(ArrayList<Product> productList, Product object) {
+        productList.add(object);
     }
 
-    public void findElement(int id) {
+    public void findElement(ArrayList<Product> productList, int id) {
         productList.get(id);
     }
 
-    public void updateElement(String type, Product product) {
-        productList.set(0, product);
+    @Override
+    public void updateElement(ArrayList<Product> productList, int id, Product value) {
+        productList.set(id, value);
     }
 
-    public void deleteElement(int id) {
+    @Override
+    public void deleteElement(ArrayList<Product> productList, int id) {
         productList.remove(id);
     }
 
-    public void listElement() {
-        productList.forEach((product) -> {
-            System.out.println(product);
-        });
+    public void listElement(ArrayList<Product> productList) {
+        for (Object object : productList) {
+            System.out.println((Product) object);
+        }
     }
-
-    
 }

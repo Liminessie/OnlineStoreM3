@@ -3,10 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/OneDrive%20-%20Centre%20d'Estudis%20Monlau/2DAM/M3/Netbeans%20Java/OnlineStore/src/model/Supplier.java</file>
-            <file>file:/E:/OneDrive%20-%20Centre%20d'Estudis%20Monlau/2DAM/M3/Netbeans%20Java/OnlineStore/src/model/Product.java</file>
-            <file>file:/E:/OneDrive%20-%20Centre%20d'Estudis%20Monlau/2DAM/M3/Netbeans%20Java/OnlineStore/src/controller/ProductController.java</file>
-            <file>file:/E:/OneDrive%20-%20Centre%20d'Estudis%20Monlau/2DAM/M3/Netbeans%20Java/OnlineStore/src/controller/SupplierController.java</file>
+            <file>file:/C:/Users/Johana/Desktop/DocCesar/Monlau/OneDrive%20-%20Centre%20d'Estudis%20Monlau/2DAM/M3/Netbeans%20Java/OnlineStore/src/model/Supplier.java</file>
+            <file>file:/C:/Users/Johana/Desktop/DocCesar/Monlau/OneDrive%20-%20Centre%20d'Estudis%20Monlau/2DAM/M3/Netbeans%20Java/OnlineStore/src/model/Product.java</file>
+            <file>file:/C:/Users/Johana/Desktop/DocCesar/Monlau/OneDrive%20-%20Centre%20d'Estudis%20Monlau/2DAM/M3/Netbeans%20Java/OnlineStore/src/Interface/ControllerInterface.java</file>
+            <file>file:/C:/Users/Johana/Desktop/DocCesar/Monlau/OneDrive%20-%20Centre%20d'Estudis%20Monlau/2DAM/M3/Netbeans%20Java/OnlineStore/src/controller/CustomerController.java</file>
+            <file>file:/C:/Users/Johana/Desktop/DocCesar/Monlau/OneDrive%20-%20Centre%20d'Estudis%20Monlau/2DAM/M3/Netbeans%20Java/OnlineStore/src/view/console/Main.java</file>
+            <file>file:/C:/Users/Johana/Desktop/DocCesar/Monlau/OneDrive%20-%20Centre%20d'Estudis%20Monlau/2DAM/M3/Netbeans%20Java/OnlineStore/src/controller/ProductController.java</file>
+            <file>file:/C:/Users/Johana/Desktop/DocCesar/Monlau/OneDrive%20-%20Centre%20d'Estudis%20Monlau/2DAM/M3/Netbeans%20Java/OnlineStore/src/controller/Invoicing.java</file>
+            <file>file:/C:/Users/Johana/Desktop/DocCesar/Monlau/OneDrive%20-%20Centre%20d'Estudis%20Monlau/2DAM/M3/Netbeans%20Java/OnlineStore/src/controller/EmployeeController.java</file>
+            <file>file:/C:/Users/Johana/Desktop/DocCesar/Monlau/OneDrive%20-%20Centre%20d'Estudis%20Monlau/2DAM/M3/Netbeans%20Java/OnlineStore/src/controller/Cart.java</file>
         </group>
     </open-files>
 </project-private>

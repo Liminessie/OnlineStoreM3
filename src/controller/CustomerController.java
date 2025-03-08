@@ -2,31 +2,45 @@ package controller;
 
 import java.util.ArrayList;
 
-import model.Customers;
+import Interface.ControllerInterface;
+import model.Customer;
 
-public class CustomerController {
-    
-    ArrayList<Customers> customerList = new ArrayList<>();
+public class CustomerController implements ControllerInterface<Customer> {
 
-    public void addElement(String customerName, String customerSurname, String customerEmail, String customerPhone, String customerResidence, String customerDate) {
-        customerList.add(new Customers(customerName, customerSurname, customerEmail, customerPhone, customerResidence, customerDate));
+    @Override
+    public void addElement(ArrayList<Customer> arraylist, Customer object) {
+        arraylist.add(object);
     }
 
-    public void findElement(int id) {
-        customerList.get(id);
+    @Override
+    public void findElement(ArrayList<Customer> arrayList, int id) {
+        arrayList.get(id);
     }
 
-    public void updateElement(String type, Customers customer) {
-        customerList.set(0, customer);
+    @Override
+    public void updateElement(ArrayList<Customer> arraylist, int id, Customer object) {
+        arraylist.set(id, object);
     }
 
-    public void deleteElement(int id) {
-        customerList.remove(id);
+    @Override
+    public void deleteElement(ArrayList<Customer> arraylist, int id) {
+        arraylist.remove(id);
     }
 
-    public void listElement() {
-        customerList.forEach((product) -> {
-            System.out.println(product);
+    @Override
+    public void listElement(ArrayList<Customer> arraylist) {
+        arraylist.forEach((customer) -> {
+            System.out.println("ID: " + customer.getId());
+            System.out.println("Nombre: " + customer.getName());
+            System.out.println("Apellido: " + customer.getSurname());
+            System.out.println("Email: " + customer.getEmail());
+            System.out.println("Teléfono: " + customer.getPhone());
+            System.out.println("Dirección: " + customer.getResidence());
+            System.out.println("Fecha de unión: " + customer.getRegistrationDate());
+            System.out.println("CIF: " + customer.getTaxID());
+            System.out.println("====================================");
         });
     }
+
+
 }
