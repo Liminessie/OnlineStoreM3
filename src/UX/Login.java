@@ -68,14 +68,14 @@ public class Login extends JFrame {
     private Customer authenticateSP(String email, String password) {
 
         try {
-            URL url = new URL("http://172.28.96.1:8095/api/login");
+            URL url = new URL("http://localhost:8095/api/login");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("POST");
             conn.setRequestProperty("Content-Type", "application/json");
             conn.setRequestProperty("Accept", "application/json");
             conn.setDoOutput(true);
 
-            String jsonInputString = "{\"email\": \"" + email + "\", \"password\": \"" + password + "\"}";
+            String jsonInputString = "{\"username\": \"" + email + "\", \"password\": \"" + password + "\"}";
             try (java.io.OutputStream os = conn.getOutputStream()) {
                 byte[] input = jsonInputString.getBytes("utf-8");
                 os.write(input, 0, input.length);
