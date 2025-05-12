@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import model.Customer;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 public class Login extends JFrame {
     private JTextField emailField;
@@ -42,17 +45,15 @@ public class Login extends JFrame {
         setVisible(true);
     }
 
+    public static void main(String[] args) {
+        new Login();
+    }
+
     private void handleLogin(ActionEvent e) {
         String email = emailField.getText();
         String password = new String(passwordField.getPassword());
 
-        Customer customer = authenticate(email, password);
-        if (customer != null) {
-            dispose(); // Cerrar la ventana de login
-            new ProductScreen(null);
-        } else {
-            messageLabel.setText("Email o contraseña incorrectos.");
-        }
+        authenticateSP(email, password);
     }
 
     private Customer authenticate(String email, String password) {
@@ -61,6 +62,37 @@ public class Login extends JFrame {
                 return customer;
             }
         }
+        return null;
+    }
+
+    private Customer authenticateSP(String email, String password) {
+
+        try {
+            URL url = new URL("http://172.28.96.1:8095/api/login");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "application/json");
+            conn.setRequestProperty("Accept", "application/json");
+            conn.setDoOutput(true);
+
+            String jsonInputString = "{\"email\": \"" + email + "\", \"password\": \"" + password + "\"}";
+            try (java.io.OutputStream os = conn.getOutputStream()) {
+                byte[] input = jsonInputString.getBytes("utf-8");
+                os.write(input, 0, input.length);
+            }
+
+            int responseCode = conn.getResponseCode();
+
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                dispose(); // Cerrar la ventana de login
+                new ProductScreen(null);
+            } else {
+                messageLabel.setText("Email o contraseña incorrectos.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 }
