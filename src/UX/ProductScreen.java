@@ -114,7 +114,7 @@ public class ProductScreen extends JFrame {
         ArrayList<Product> product = new ArrayList<>();
 
         try {
-                URL url = new URL("http://localhost:8080/api/users");
+                URL url = new URL("http://localhost:8095/api/productos");
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
 
@@ -142,24 +142,16 @@ public class ProductScreen extends JFrame {
 
                     String id = fields[0].split(":")[1].trim();
                     String name = fields[1].split(":")[1].trim();
-                    String description = fields[2].split(":")[1].trim();
-                    String suppliersPrice = fields[3].split(":")[1].trim();
-                    String salePrice = fields[4].split(":")[1].trim();
-                    String category = fields[5].split(":")[1].trim();
-                    String color = fields[6].split(":")[1].trim();
-                    String stock = fields[7].split(":")[1].trim();
-                    String unit = fields[8].split(":")[1].trim();
-
+                    String unit = fields[2].split(":")[1].trim();
+                    String color = fields[3].split(":")[1].trim();
+                    String stock = fields[4].split(":")[1].trim();
+                    
                     product.add(new Product(
                         Integer.parseInt(id),
                         name,
-                        description,
-                        Float.parseFloat(suppliersPrice),
-                        Float.parseFloat(salePrice),
-                        Integer.parseInt(category),
+                        Integer.parseInt(unit),
                         color,
-                        Boolean.parseBoolean(stock),
-                        Integer.parseInt(unit)
+                        Boolean.parseBoolean(stock)
                     ));
                 }
 

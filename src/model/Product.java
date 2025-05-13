@@ -27,6 +27,14 @@ public class Product {
         this.unit = productUnit;
     }
 
+    public Product(int productID, String productName, int productUnit, String productColor, boolean productStock) {
+        this.productID = productID;
+        this.name = productName;
+        this.unit = productUnit;
+        this.color = productColor;
+        this.stock = productStock;
+    }
+
     public int getID(){
         return productID;
     }    

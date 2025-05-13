@@ -12,7 +12,6 @@ public class Login extends JFrame {
     private JPasswordField passwordField;
     private JLabel messageLabel;
 
-    // Simulación de base de datos
     /*  
     private final Customer[] customers = {
         new Customer(1, "Juan", "Pérez", "juan@example.com", "123456789", "Madrid", "2024-01-01", "ABC123", "1234"),
