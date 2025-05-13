@@ -3,8 +3,14 @@ package UX;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import model.Product;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 
 public class ProductScreen extends JFrame {
     private ArrayList<Product> cart = new ArrayList<>();
@@ -105,6 +111,81 @@ public class ProductScreen extends JFrame {
     }
 
     public static void main(String[] args) {
+
+        ArrayList<Product> product = new ArrayList<>();
+
+        try {
+                URL url = new URL("http://localhost:8080/api/users");
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("GET");
+
+                BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(conn.getInputStream())
+                );
+                StringBuilder response = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    response.append(line);
+                }
+                reader.close();
+
+                // Parsear manualmente el JSON (asumiendo formato simple)
+                String json = response.toString();
+                product = new ArrayList<>();
+
+                // Eliminar corchetes y dividir por objetos
+                json = json.substring(1, json.length() - 1); // Quita los []
+                String[] userEntries = json.split("\\},\\{"); // Divide por "},{"
+
+                for (String entry : userEntries) {
+                    entry = entry.replaceAll("[{}\"]", ""); // Limpia caracteres
+                    String[] fields = entry.split(","); // Divide por campos
+
+                    String id = fields[0].split(":")[1].trim();
+                    String name = fields[1].split(":")[1].trim();
+                    String description = fields[2].split(":")[1].trim();
+                    String suppliersPrice = fields[3].split(":")[1].trim();
+                    String salePrice = fields[4].split(":")[1].trim();
+                    String category = fields[5].split(":")[1].trim();
+                    String color = fields[6].split(":")[1].trim();
+                    String stock = fields[7].split(":")[1].trim();
+                    String unit = fields[8].split(":")[1].trim();
+
+                    product.add(new Product(
+                        Integer.parseInt(id),
+                        name,
+                        description,
+                        Float.parseFloat(suppliersPrice),
+                        Float.parseFloat(salePrice),
+                        Integer.parseInt(category),
+                        color,
+                        Boolean.parseBoolean(stock),
+                        Integer.parseInt(unit)
+                    ));
+                }
+
+                // Mostrar resultados
+                StringBuilder sb = new StringBuilder();
+                for (Product user : product) {
+                    sb.append("ID: ").append(user.getID()).append("\n");
+                    sb.append("Nombre: ").append(user.getName()).append("\n");
+                    sb.append("Descripción: ").append(user.getDescription()).append("\n");
+                    sb.append("Precio Proveedor: ").append(user.getSupplierPrice()).append("\n");
+                    sb.append("Precio de Venta: ").append(user.getSalePrice()).append("\n");
+                    sb.append("Categoría: ").append(user.getCategory()).append("\n");
+                    sb.append("Color: ").append(user.getColor()).append("\n");
+                    sb.append("Stock Disponible: ").append(user.isStock()).append("\n");
+                    sb.append("Unidades: ").append(user.getUnit()).append("\n");
+                    sb.append("--------------------------------------------------\n");
+                }
+                
+            } catch (Exception ex) {
+            ex.printStackTrace();
+                    
+        }
+
+        /*
+        
         Product[] products = {
             new Product(1, "Vibrador Clásico", "Vibrador de silicona con múltiples velocidades", 15.0f, 29.99f, 1, "Rosa", true, 50),
             new Product(2, "Lubricante", "Lubricante a base de agua, 250ml", 3.5f, 9.99f, 2, "Transparente", true, 200),
@@ -117,6 +198,7 @@ public class ProductScreen extends JFrame {
             new Product(9, "Esposas", "Esposas metálicas con forro de felpa", 7.0f, 16.99f, 9, "Rojo", true, 100),
             new Product(10, "Fusta", "Fusta pequeña de cuero para juegos BDSM", 5.5f, 14.99f, 10, "Negro", true, 25)
         };
-        new ProductScreen(products);
+        */
+        new ProductScreen(product.toArray(new Product[0]));
     }
 }
