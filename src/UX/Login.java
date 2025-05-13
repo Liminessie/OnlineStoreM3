@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import model.Customer;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 
 public class Login extends JFrame {
     private JTextField emailField;
@@ -14,12 +13,13 @@ public class Login extends JFrame {
     private JLabel messageLabel;
 
     // Simulación de base de datos
+    /*  
     private final Customer[] customers = {
         new Customer(1, "Juan", "Pérez", "juan@example.com", "123456789", "Madrid", "2024-01-01", "ABC123", "1234"),
         new Customer(2, "Ana", "García", "ana@example.com", "987654321", "Barcelona", "2023-05-12", "DEF456", "password"),
         new Customer(3, "Carlos", "López", "carlos@example.com", "111222333", "Valencia", "2022-11-20", "GHI789", "admin")
     };
-
+    */
     public Login() {
         setTitle("Login");
         setSize(400, 200);
@@ -54,15 +54,6 @@ public class Login extends JFrame {
         String password = new String(passwordField.getPassword());
 
         authenticateSP(email, password);
-    }
-
-    private Customer authenticate(String email, String password) {
-        for (Customer customer : customers) {
-            if (customer.getEmail().equals(email) && customer.getPassword().equals(password)) {
-                return customer;
-            }
-        }
-        return null;
     }
 
     private Customer authenticateSP(String email, String password) {
