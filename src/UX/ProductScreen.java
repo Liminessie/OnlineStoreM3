@@ -110,7 +110,7 @@ public class ProductScreen extends JFrame {
     }
 
     public static void main(String[] args) {
-
+        
         ArrayList<Product> product = new ArrayList<>();
 
         try {

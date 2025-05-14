@@ -25,7 +25,7 @@ public class Login extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(4, 2));
 
-        add(new JLabel("Email:"));
+        add(new JLabel("Username:"));
         emailField = new JTextField();
         add(emailField);
 
